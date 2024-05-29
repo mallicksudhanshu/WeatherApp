@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <form action="/cityTemp" method="post" class="search-form">
+            <label for="city_name">City:</label>
+            <input type="text" name="city_name" id="city_name" required>
+            <button type="submit">Search</button>
+        </form>
+        <% if (error) { %>
+            <p style="color: red;"><%= error %></p>
+        <% } %>
+        <% if (City) { %>
+            <div class="weather-info">
+                <h1><%= City %></h1>
+                <p class="temperature">Temperature: <%= Temp %>°C</p>
+                <p>Wind Speed: <%= WindSpeed %> km/h</p>
+                <p>Humidity: <%= Humidity %>%</p>
+                <img src="<%= IconUrl %>" alt="Weather Icon">
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>
